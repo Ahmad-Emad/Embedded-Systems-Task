@@ -1,12 +1,9 @@
 #include <stdint.h>
 #include <stdio.h>
 #include "tm4c123gh6pm.h"
+
 void SystemInit(){}
-//assuming switch on PF0,led on PF1
-//enable intterupt on PF0 
-//TIMER0 
-//ADC0
-//UART0
+
 int result=0;
 
 void PORTF_Init()
