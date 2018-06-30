@@ -27,19 +27,19 @@ void PORTF_Init()
 		
 }	
 	
-void TIMER0_Init(){
-	
-  SYSCTL_RCGCTIMER_R |= 0x01;   					// activate TIMER0
-  TIMER0_CTL_R = 0;					    		// disable TIMER0A during setup
-  TIMER0_CFG_R = 0;    							// 32-bit mode
-  TIMER0_TAMR_R = 0x02;   						// periodic mode
-  TIMER0_TAILR_R = 48000000-1;    					// reload value, set to 3 secs
-  TIMER0_TAPR_R = 0;            					// bus clock resolution
-  TIMER0_ICR_R = 0x00000001;    					// clear TIMER0 timeout flag
-  TIMER0_IMR_R = 0x00000001;    					// arm timeout interrupt
-  NVIC_EN0_R = 1<<19;           					// enable IRQ 19 in NVIC
-  TIMER0_CTL_R = 0x00000001;    					// enable TIMER0A
-  __enable_irq();
+void TIMER0_Init()
+{	
+ 	SYSCTL_RCGCTIMER_R |= 0x01;   					// activate TIMER0
+  	TIMER0_CTL_R = 0;				    		// disable TIMER0A during setup
+	TIMER0_CFG_R = 0;    						// 32-bit mode
+	TIMER0_TAMR_R = 0x02;   					// periodic mode
+	TIMER0_TAILR_R = 48000000-1;    				// reload value, set to 3 secs
+	TIMER0_TAPR_R = 0;            					// bus clock resolution
+	TIMER0_ICR_R = 0x00000001;    					// clear TIMER0 timeout flag
+	TIMER0_IMR_R = 0x00000001;    					// arm timeout interrupt
+	NVIC_EN0_R = 1<<19;           					// enable IRQ 19 in NVIC
+	TIMER0_CTL_R = 0x00000001;    					// enable TIMER0A
+	__enable_irq();
 }
 
 
@@ -78,9 +78,10 @@ void UART0_Init()
 }
 
 
-void UART_OutChar(char data){
-  while((UART0_FR_R&0x20) != 0);					// wait until TxFF 
-  UART0_DR_R = data;
+void UART_OutChar(char data)
+{
+	while((UART0_FR_R&0x20) != 0);					// wait until TxFF 
+	UART0_DR_R = data;
 	
 }
 
