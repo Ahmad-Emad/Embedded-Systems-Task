@@ -7,7 +7,8 @@ and get states of the leds in home, send temp degree frequently.
   - Use UART serial communication to send data to serial monitor.
   - Use ADC to convert analog temp sensor to digital values to deal with it.
   - Use Timer to interrupt every 3 seconds to send data to serial monitor.
-#Experience 
+  
+# Experience 
 - Very good with C.
 - Very good with tiva c launchpad.
 - good with keil IDE.
